@@ -2,7 +2,7 @@
 	<div class="about">
 		<h1>This is an about page</h1>
 		<ShowModal :show="show" :title="title" @hideModal="hideModal" @submit="submit">
-			<p>这里放弹窗的内容</p>
+			<p>这里放弹窗的内容 啊哈哈测试一下不同人的提交</p>
 		</ShowModal>
 	</div>
 </template>
