@@ -1,18 +1,12 @@
 <template>
-	<div class="body-login">
-		<p class="intro1">
-			航康呼叫系统手自动切换 <br />密码：<input
-				type="password"
-				v-model="password"
-				style="width: 40%; height: 40px"
-			/>
-			<button
-				style="font-size: 80%; width: 70%; height: 50px"
-				v-on:click="login"
-			>
-				点击登录
-			</button>
-		</p>
+	<div class="login-bg">
+		<div class="body-login">
+			<div>
+				<p>航康呼叫系统手自动切换</p>
+				<p>密码：<el-input style="width: 50%" size="medium" type="password" placeholder="请输入内容" v-model="password" clearable > </el-input> </p>
+				<el-button style="font-size: 80%; width: 70%; height: 50px" type="success" round @click="login" >点击登录</el-button>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -27,7 +21,7 @@ export default {
 	methods: {
 		login() {
 			this.$axios
-				.get("/project/agv.json") 	// 存放json的路径
+				.get("/project/agv.json") // 存放json的路径
 				.then((res) => {
 					console.log(res.data.password);
 					if (this.password == res.data.password) {
@@ -46,28 +40,23 @@ export default {
 </script>
 
 <style scoped>
-.body-login {
-	background-color: #61a1bc;
-	position: absolute;
-	width: 100%;
-	height: 100%;
+.login-bg {
+	position: fixed;
 	top: 0;
 	left: 0;
-	overflow-y: auto;
-	font-size: 50px;
-}
-.intro1 {
+	width: 100%;
+	height: 100%;
 	background-color: #61a1bc;
-	font-size: 80%;
-	color: Blue;
-	text-align: center;
-	border-radius: 20px;
+}
 
-	line-height: 150%;
-	position: relative;
-	width: 80%;
-	height: 30%;
-	border-radius: 5px;
-	margin: 20% auto;
+.body-login {
+	border-radius: 10px;
+	overflow: hidden;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 30px;
+	font-weight: 900;
 }
 </style>
